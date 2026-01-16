@@ -1,7 +1,7 @@
 # Importation des packages nécessaires
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QLabel,QGridLayout
-
 import gestion_donnees
+import operations_CRUD
 
 #import gestion_donnees
 #import operations_CRUD
