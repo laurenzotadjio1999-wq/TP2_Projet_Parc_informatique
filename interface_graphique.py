@@ -41,7 +41,7 @@ labelCodePoste = QLabel("Code_Poste :")
 labelMarque = QLabel("Marque:")
 labelProcesseur = QLabel("Processeur:")
 labelType = QLabel("Type (Laptop/Desktop):")
-labelSE = QLabel("Système d’exploitation:")
+labelSE = QLabel("S.E:")
 
 lineEditCodePoste = QLineEdit(fenetre)
 lineEditCodePoste.setGeometry(150, 150, 100, 30)
@@ -68,6 +68,30 @@ lineEditSE.setGeometry(450, 150, 100, 30)
 grid.addWidget(labelSE, 3, 2)
 grid.addWidget(lineEditSE, 3, 3)
 
+
+# Création du bouton "Afficher Tout"
+btn3 = QPushButton(fenetre)
+btn3.setText("Afficher Tout")
+btn3.setGeometry(500, 250, 100, 30)
+grid.addWidget(btn3, 5, 8)
+#btn3.clicked.connect()
+
+# Création du bouton "Modifier"
+btn4 = QPushButton(fenetre)
+btn4.setText("MODIFIER")
+btn4.setGeometry(500, 250, 100, 30)
+grid.addWidget(btn4, 3, 8)
+#btn4.clicked.connect()
+
+# Création du QTable pour l’affichage des enregistrements
+qtab = QTableWidget(fenetre)
+qtab.setRowCount(8)
+qtab.setColumnCount(5)
+qtab.setMinimumHeight(200)
+qtab.setMinimumWidth(450)
+qtab.setHorizontalHeaderLabels(['Code Poste', 'Marque', 'Processeur', 'Type', 'Système d’exploitation'])
+grid.addWidget(qtab, 7, 0, 2, 8)
+#qtab.cellClicked.connect()
 
 
 # Affichage de la fenêtre et exécution de l’application
