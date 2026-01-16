@@ -46,3 +46,38 @@ def SupprimerPoste(lineEditSuppCode, qtab):
     conn.close()
     # Rafraîchir l’affichage
     AfficherTout(qtab)
+
+def Remplir_auto(qtab, lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, row, column):
+    # Récupérer les valeurs de la ligne sélectionnée
+    Codeposte = qtab.item(row, 0).text()
+    Marque = qtab.item(row, 1).text()
+    Processeur = qtab.item(row, 2).text()
+    Type = qtab.item(row, 3).text()
+    SE = qtab.item(row, 4).text()
+    # Remplir les champs correspondants dans le formulaire
+    lineEditCodePoste.setText(Codeposte)
+    lineEditMarque.setText(Marque)
+    lineEditProcesseur.setText(Processeur)
+    lineEditType.setText(Type)
+    lineEditSE.setText(SE)
+    #Mettre en évidence la ligne sélectionnée (effet visuel)
+    qtab.selectRow(row)
+
+
+# Fonction pour modifier les informations d’un poste
+def ModifierPoste(lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, qtab):
+    CodePoste= lineEditCodePoste.text().strip()
+    Marque = lineEditMarque.text().strip()
+    Processeur = lineEditProcesseur.text().strip()
+    Type = lineEditType.text().strip()
+    SE = lineEditSE.text().strip()
+
+    print("Modification du poste :", CodePoste)
+    conn = sqlite3.connect("ParcInfo.db")
+    cursor = conn.cursor()
+    # requette ici
+    cursor.execute("UPDATE postes SET Marque=?, Processeur=?, Type=?, SE=? WHERE Code_poste = ?;", (CodePoste,Marque, Processeur, Type, SE))
+    conn.commit()
+    conn.close()
+    # Rafraîchir l’affichage
+    AfficherTout(qtab)
