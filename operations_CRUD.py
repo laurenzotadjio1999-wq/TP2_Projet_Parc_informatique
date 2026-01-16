@@ -66,7 +66,7 @@ def Remplir_auto(qtab, lineEditCodePoste, lineEditMarque, lineEditProcesseur, li
 
 # Fonction pour modifier les informations d’un poste
 def ModifierPoste(lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, qtab):
-    CodePoste= lineEditCodePoste.text().strip()
+    CodePoste = lineEditCodePoste.text().strip()
     Marque = lineEditMarque.text().strip()
     Processeur = lineEditProcesseur.text().strip()
     Type = lineEditType.text().strip()
@@ -75,8 +75,10 @@ def ModifierPoste(lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEdi
     print("Modification du poste :", CodePoste)
     conn = sqlite3.connect("ParcInfo.db")
     cursor = conn.cursor()
-    # requette ici
-    cursor.execute("UPDATE postes SET Marque=?, Processeur=?, Type=?, SE=? WHERE Code_poste = ?;", (CodePoste,Marque, Processeur, Type, SE))
+
+    #Requête ici
+    cursor.execute(
+        "UPDATE postes SET Marque=?, Processeur=?, Type=?, SE=? WHERE Code_poste=?",  (Marque, Processeur, Type, SE, CodePoste))
     conn.commit()
     conn.close()
     # Rafraîchir l’affichage
