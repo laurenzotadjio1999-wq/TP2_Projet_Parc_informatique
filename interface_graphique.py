@@ -1,7 +1,7 @@
 # Importation des packages nécessaires
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QLabel,QGridLayout
-
 import gestion_donnees
+import operations_CRUD
 
 #import gestion_donnees
 #import operations_CRUD
@@ -84,7 +84,9 @@ btn4 = QPushButton(fenetre)
 btn4.setText("MODIFIER")
 btn4.setGeometry(500, 250, 100, 30)
 grid.addWidget(btn4, 3, 8)
-#btn4.clicked.connect()
+btn4.clicked.connect(lambda: operations_CRUD.ModifierPoste(
+    lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, qtab
+))
 
 # Création du QTable pour l’affichage des enregistrements
 qtab = QTableWidget(fenetre)
@@ -102,7 +104,7 @@ btn5 = QPushButton(fenetre)
 btn5.setText("SUPPRIMER")
 btn5.setGeometry(500, 200, 100, 30)
 grid.addWidget(btn5, 4, 8)
-#btn5.clicked.connect()
+btn5.clicked.connect(lambda: operations_CRUD.SupprimerPoste(lineEditSuppCode, qtab))
 lineEditSuppCode = QLineEdit(fenetre)
 lineEditSuppCode.setGeometry(350, 200, 100, 30)
 grid.addWidget(labelSuppCode, 4, 6)
