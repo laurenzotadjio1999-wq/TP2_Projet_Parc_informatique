@@ -96,7 +96,13 @@ qtab.setMinimumHeight(200)
 qtab.setMinimumWidth(450)
 qtab.setHorizontalHeaderLabels(['Code Poste', 'Marque', 'Processeur', 'Type', 'Système d’exploitation'])
 grid.addWidget(qtab, 7, 0, 2, 8)
-#qtab.cellClicked.connect()
+
+#Remplissage automatique
+qtab.cellClicked.connect(
+    lambda row, column: operations_CRUD.RemplirChampsDepuisTableau(
+        qtab, lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, row, column
+    )
+)
 
 # Création du bouton "Supprimer"
 labelSuppCode = QLabel("Code du poste :")
