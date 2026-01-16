@@ -26,10 +26,23 @@ def AfficherTout(qtab):
     conn.close()
     # QTable
     qtab.setRowCount(len(resultat))
-    qtab.setColumnCount(4)
+    qtab.setColumnCount(5)
     qtab.setGeometry(50, 250, 450, 200)
     qtab.setHorizontalHeaderLabels(['Code Poste', 'Marque', 'Processeur', 'Type', 'S.E'])
 
     for i in range(len(resultat)):
         for j in range(5):
             qtab.setItem(i, j, QTableWidgetItem(str(resultat[i][j])))
+
+
+# Fonction pour supprimer un poste selon son Code_poste
+def SupprimerPoste(lineEditSuppCode, qtab):
+    print("Suppression du poste :", lineEditSuppCode.text())
+    conn = sqlite3.connect("ParcInfo.db")
+    cursor = conn.cursor()
+    # requette ici
+    cursor.execute("DELETE FROM postes WHERE Code_poste = ?", (lineEditSuppCode.text(),))
+    conn.commit()
+    conn.close()
+    # Rafraîchir l’affichage
+    AfficherTout(qtab)
