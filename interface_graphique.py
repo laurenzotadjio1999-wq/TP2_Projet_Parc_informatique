@@ -99,7 +99,7 @@ grid.addWidget(qtab, 7, 0, 2, 8)
 
 #Remplissage automatique
 qtab.cellClicked.connect(
-    lambda row, column: operations_CRUD.RemplirChampsDepuisTableau(
+    lambda row, column: operations_CRUD.Remplir_auto(
         qtab, lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, row, column
     )
 )
