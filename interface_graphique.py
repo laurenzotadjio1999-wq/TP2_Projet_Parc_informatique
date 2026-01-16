@@ -77,7 +77,7 @@ btn3 = QPushButton(fenetre)
 btn3.setText("Afficher Tout")
 btn3.setGeometry(500, 250, 100, 30)
 grid.addWidget(btn3, 5, 8)
-#btn3.clicked.connect()
+btn3.clicked.connect(lambda: operations_CRUD.AfficherTout(qtab))
 
 # Création du bouton "Modifier"
 btn4 = QPushButton(fenetre)
