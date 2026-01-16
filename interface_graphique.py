@@ -93,7 +93,7 @@ qtab = QTableWidget(fenetre)
 qtab.setRowCount(8)
 qtab.setColumnCount(5)
 qtab.setMinimumHeight(200)
-qtab.setMinimumWidth(450)
+qtab.setMinimumWidth(550)
 qtab.setHorizontalHeaderLabels(['Code Poste', 'Marque', 'Processeur', 'Type', 'Système d’exploitation'])
 grid.addWidget(qtab, 7, 0, 2, 8)
 
