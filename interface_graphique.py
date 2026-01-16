@@ -93,6 +93,17 @@ qtab.setHorizontalHeaderLabels(['Code Poste', 'Marque', 'Processeur', 'Type', 'S
 grid.addWidget(qtab, 7, 0, 2, 8)
 #qtab.cellClicked.connect()
 
+# Création du bouton "Supprimer"
+labelSuppCode = QLabel("Code du poste :")
+btn5 = QPushButton(fenetre)
+btn5.setText("SUPPRIMER")
+btn5.setGeometry(500, 200, 100, 30)
+grid.addWidget(btn5, 4, 8)
+#btn5.clicked.connect()
+lineEditSuppCode = QLineEdit(fenetre)
+lineEditSuppCode.setGeometry(350, 200, 100, 30)
+grid.addWidget(labelSuppCode, 4, 6)
+grid.addWidget(lineEditSuppCode, 4, 7)
 
 # Affichage de la fenêtre et exécution de l’application
 fenetre.show()
