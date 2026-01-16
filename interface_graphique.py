@@ -1,5 +1,8 @@
 # Importation des packages nécessaires
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QLineEdit, QTableWidget, QTableWidgetItem, QLabel,QGridLayout
+
+import gestion_donnees
+
 #import gestion_donnees
 #import operations_CRUD
 
@@ -27,14 +30,14 @@ btn1 = QPushButton(fenetre)
 btn1.setText("Créer Table")
 btn1.setGeometry(500, 100, 100, 30)
 grid.addWidget(btn1, 1, 8)
-#btn1.clicked.connect(gestion_donnees.CreerTable)
+btn1.clicked.connect(gestion_donnees.CreerTable)
 
 # Création du bouton "Insérer"
 btn2 = QPushButton(fenetre)
 btn2.setText("INSÉRER")
 btn2.setGeometry(500, 150, 100, 30)
 grid.addWidget(btn2, 2, 8)
-#btn2.clicked.connect()
+btn2.clicked.connect(lambda: operations_CRUD.InsererPoste(lineEditCodePoste, lineEditMarque, lineEditProcesseur, lineEditType, lineEditSE, qtab))
 
 # Création des champs pour le bouton "Insérer"
 labelCodePoste = QLabel("Code_Poste :")
